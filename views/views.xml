@@ -5,14 +5,13 @@
       <field name="name">model.marketing.view.form</field>
       <field name="model">marketing.marketing</field>
       <field name="arch" type="xml">
-      <button name="actionState" type="object" class="oe_stat_button" icon="fa-">
-        <field name="state" string="" widget="statinfo"/>
-      </button>
-
-
-        <button name="btnAction" type="object" class="oe_highlight" string="Get Date " >         
-        </button>      
-        <form string="">
+      <header>
+       <button name="btnAction" type="object" class="oe_highlight" string="Get Date " >         
+       </button>  
+      
+        <field name="state" string="" widget="statusbar" statusbar_visible="draft,done,cancel"/> 
+      </header>
+        <form string="hr">
           <sheet>
             <group>
               <field name="name"/>
