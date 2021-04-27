@@ -1,0 +1,58 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+    <record id="marketing_view_form" model="ir.ui.view">
+      <field name="name">model.marketing.view.form</field>
+      <field name="model">marketing.marketing</field>
+      <field name="arch" type="xml">
+      <button name="actionState" type="object" class="oe_stat_button" icon="fa-">
+        <field name="state" string="" widget="statinfo"/>
+      </button>
+
+
+        <button name="btnAction" type="object" class="oe_highlight" string="Get Date " >         
+        </button>      
+        <form string="">
+          <sheet>
+            <group>
+              <field name="name"/>
+              <field name="appdate" readonly="1"/> 
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+   
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="marketing.action_window">
+      <field name="name">marketing window</field>
+      <field name="res_model">marketing.marketing</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <!-- server action to the one above -->
+
+  
+
+
+    <!-- Top menu item -->
+
+    <menuitem name="Marketing" id="marketing.menu_root"/>
+
+    <!-- menu categories -->
+
+    <menuitem name="Marketing" id="marketing.menu_1" parent="marketing.menu_root"/>
+   
+
+    <!-- actions -->
+
+    <menuitem name="Marketing Person" id="marketing.menu_1_list" parent="marketing.menu_1"
+              action="marketing.action_window"/>
+
+
+  </data>
+</odoo>
