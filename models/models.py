@@ -15,13 +15,18 @@ class marketing(models.Model):
        ('draft','Draft'),
        ('confirm','Confirm'),       
        ('cancel','Cancel'),
-    ],string='Status', readonly=True, default='draft')
+    ],string='Status',  default='draft')
 
 
     def btnAction(self):
         self.appdate = datetime.datetime.now()
+
+    def btnConfirm(self):
+        self.state = 'confirm'
+
+    def btnCancel(self):
+        self.state = 'cancel'
     
-    def actionState(self):
-        print('state')
+    
 
     

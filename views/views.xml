@@ -1,5 +1,18 @@
 <odoo>
   <data>
+
+  <record model="ir.ui.view" id="salary_list">
+      <field name="name">Salary list</field>
+      <field name="model">marketing.marketing</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="appdate"/>
+          <field name="state"/>         
+        </tree>
+      </field>
+    </record>
+   
     <!-- explicit list view definition -->
     <record id="marketing_view_form" model="ir.ui.view">
       <field name="name">model.marketing.view.form</field>
@@ -8,8 +21,12 @@
       <header>
        <button name="btnAction" type="object" class="oe_highlight" string="Get Date " >         
        </button>  
-      
-        <field name="state" string="" widget="statusbar" statusbar_visible="draft,done,cancel"/> 
+       <button name="btnConfirm" type="object" class="oe_highlight" string="Confirm" >         
+       </button>
+       <button name="btnCancel" type="object" class="oe_highlight" string="Cancel " >         
+       </button>
+       
+        <field name="state" string="" widget="statusbar" statusbar_visible="draft,confirm,cancel"/> 
       </header>
         <form string="hr">
           <sheet>
@@ -27,7 +44,7 @@
     <!-- actions opening views on models -->
 
     <record model="ir.actions.act_window" id="marketing.action_window">
-      <field name="name">marketing window</field>
+      <field name="name">marketing </field>
       <field name="res_model">marketing.marketing</field>
       <field name="view_mode">tree,form</field>
     </record>
